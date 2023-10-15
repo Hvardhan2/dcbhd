@@ -1,0 +1,24 @@
+public class MaxwellEquations {
+    public static void main(String[] args) {
+        // Constants
+        double epsilon0 = 8.854187817e-12; // Permittivity of free space (F/m)
+        double mu0 = 4 * Math.PI * 1e-7;  // Permeability of free space (H/m)
+        double c = 1 / Math.sqrt(epsilon0 * mu0); // Speed of light in free space (m/s)
+
+        // Time and space parameters
+        double t = 1.0; // Time (s)
+        double z = 2.0; // Position along the propagation direction (m)
+
+        // Electric field calculation
+        double omega = 2 * Math.PI * c / z; // Angular frequency (rad/s)
+        double E0 = 1.0; // Electric field magnitude (V/m)
+        double E = E0 * Math.cos(omega * t - omega * z / c);
+
+        // Magnetic field calculation
+        double B = E / c; // Magnetic field magnitude (T)
+
+        // Output
+        System.out.println("Electric Field (E) at t = " + t + " s and z = " + z + " m: " + E + " V/m");
+        System.out.println("Magnetic Field (B) at t = " + t + " s and z = " + z + " m: " + B + " T");
+    }
+}
